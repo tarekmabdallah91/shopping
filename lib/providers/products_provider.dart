@@ -1,7 +1,9 @@
-import '../models/product.dart';
+import 'package:flutter/material.dart';
+import 'package:shopping/models/product.dart';
 
-class DummyData {
-  static const dummyData = [
+// 2nd step
+class ProductsProvider with ChangeNotifier {
+  List<Product> _items = [ 
     Product(
       id: 'p1',
       title: 'Red Shirt',
@@ -35,4 +37,13 @@ class DummyData {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
+
+  List<Product> get items {
+    return [..._items];
+  }
+
+  void addProduct() {
+//....
+    notifyListeners();
+  }
 }
