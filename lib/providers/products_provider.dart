@@ -3,7 +3,7 @@ import 'package:shopping/models/product.dart';
 
 // 2nd step
 class ProductsProvider with ChangeNotifier {
-  List<Product> _items = [ 
+  List<Product> _items = [
     Product(
       id: 'p1',
       title: 'Red Shirt',
@@ -40,6 +40,10 @@ class ProductsProvider with ChangeNotifier {
 
   List<Product> get items {
     return [..._items];
+  }
+
+  Product getProductById(String id) {
+    return items.firstWhere((element) => element.id == id);
   }
 
   void addProduct() {
