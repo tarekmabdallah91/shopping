@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping/providers/products_provider.dart';
+import 'package:shopping/providers/products.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 import 'package:shopping/screens/products_overview_screen.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       // 3rd step using it and it's main func. 'create'
-      create: (BuildContext context) => ProductsProvider(),
+      create: (BuildContext context) => Products(),
       child: MaterialApp(
         title: appTitle,
         theme: ThemeData(
