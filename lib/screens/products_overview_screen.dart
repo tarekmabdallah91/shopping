@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping/providers/cart.dart';
+import '../widgets/badge.dart';
 import '../widgets/products_grid_view.dart';
 
 enum MenuItemsValues {
@@ -31,6 +34,17 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         title: const Text("Shopping app"),
         actions: <Widget>[
+          Consumer<Cart>(
+            builder: (_, cart, cartIcon) => Badge(
+              color: Theme.of(context).colorScheme.secondary,
+              value: cart.itemCount.toString(),
+              child: cartIcon,
+            ),
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+          ),
           PopupMenuButton(
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => <PopupMenuItem>[
