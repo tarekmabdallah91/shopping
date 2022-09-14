@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Lato'),
         initialRoute: '/',
         routes: {
-          '/': (context) => const ProductsOverviewScreen(),
+          '/': (context) => ProductsOverviewScreen(),
           ProductDetailsScreen.route: (context) => const ProductDetailsScreen(),
         },
       ),
