@@ -4,12 +4,15 @@ import 'package:shopping/providers/cart.dart';
 import 'package:shopping/providers/product.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 
+import '../providers/products.dart';
+
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 11th step: set listen to false to avoid rebuilding all the widget when the data changed
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
+    final productsData = Provider.of<Products>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: GestureDetector(
@@ -36,6 +39,8 @@ class ProductItem extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
                   product.toggleIsFavouraiteStatus();
+                  productsData.removeProductFromFavouraites(
+                      product); // TODO to make grid listen to this action
                 },
               ),
             ),

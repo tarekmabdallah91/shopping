@@ -42,6 +42,10 @@ class Products with ChangeNotifier {
     return _items.where((element) => element.isFavouraite).toList();
   }
 
+  void removeProductFromFavouraites(Product product) {
+    getFavouraitesOnly.removeWhere((element) => product.id == element.id);
+  }
+
   List<Product> get items {
     return [..._items];
   }

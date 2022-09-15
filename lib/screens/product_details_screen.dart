@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/providers/products.dart';
 
+import '../widgets/app_drawer.dart';
+
 class ProductDetailsScreen extends StatelessWidget {
   static const route = '/ProductDetailsScreen';
 
@@ -15,6 +17,7 @@ class ProductDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(product.title),
       ),
+      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
