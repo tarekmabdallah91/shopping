@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 
 class Product with ChangeNotifier {
-  // 6th step
-  final String id;
+  // 6th step 'with ChangeNotifier' 
+  String id;
   final String title;
   final String description;
   final double price;
