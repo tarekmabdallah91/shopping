@@ -38,7 +38,7 @@ class ProductItem extends StatelessWidget {
                 ),
                 color: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
-                  product.toggleIsFavouraiteStatus();
+                  product.toggleFavoriteStatus();
                   productsData.removeProductFromFavouraites(
                       product); // dart(todo) to make grid listen to this action
                 },

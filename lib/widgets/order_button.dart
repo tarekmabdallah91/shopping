@@ -7,7 +7,7 @@ import '../providers/orders.dart';
 class OrderButton extends StatefulWidget {
   final Cart cart;
 
-  const OrderButton({super.key, required this.cart});
+  const OrderButton({required this.cart});
 
   @override
   _OrderButtonState createState() => _OrderButtonState();
@@ -18,7 +18,7 @@ class _OrderButtonState extends State<OrderButton> {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return ElevatedButton(
       child: _isLoading ? CircularProgressIndicator() : Text('ORDER NOW'),
       onPressed: (widget.cart.totalPrice <= 0 || _isLoading)
           ? null
@@ -35,7 +35,6 @@ class _OrderButtonState extends State<OrderButton> {
               });
               widget.cart.clear();
             },
-      textColor: Theme.of(context).primaryColor,
     );
   }
 }

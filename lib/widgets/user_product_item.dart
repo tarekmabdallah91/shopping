@@ -12,7 +12,7 @@ class UserProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scaffold = Scaffold.of(context);
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
     return ListTile(
       title: Text(title),
       leading: CircleAvatar(
@@ -39,7 +39,7 @@ class UserProductItem extends StatelessWidget {
                   await Provider.of<Products>(context, listen: false)
                       .removeProductById(id);
                 } catch (error) {
-                  scaffold.showSnackBar(
+                  scaffoldMessenger.showSnackBar(
                     SnackBar(
                       content: Text(
                         'Deleting failed!',
