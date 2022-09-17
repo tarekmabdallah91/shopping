@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "1059823006752",
+    "firebase_url": "https://alarmscontroller.firebaseio.com",
+    "project_id": "alarmscontroller",
+    "storage_bucket": "alarmscontroller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059823006752:android:1ed719753cf3453cbc3845",
+        "android_client_info": {
+          "package_name": "com.Shabakkat.alarmscontroller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBJVJRAUtwNYgC6_UnCGGr9J8gCEoJDYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1059823006752-mgaj0cmsisqmmqp8bjahiqmblakm1amt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopping"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059823006752:android:c48cd36b2943348dbc3845",
+        "android_client_info": {
+          "package_name": "com.example.shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBJVJRAUtwNYgC6_UnCGGr9J8gCEoJDYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1059823006752-mgaj0cmsisqmmqp8bjahiqmblakm1amt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopping"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059823006752:android:84bbd1b9ca66723cbc3845",
+        "android_client_info": {
+          "package_name": "net.shabakkatksa.pettycash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBJVJRAUtwNYgC6_UnCGGr9J8gCEoJDYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059823006752-gu7hqdot9bhe7btjstqv111hdimk9dcp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1059823006752-mgaj0cmsisqmmqp8bjahiqmblakm1amt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopping"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

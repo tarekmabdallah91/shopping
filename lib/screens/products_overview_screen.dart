@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/providers/cart.dart';
 import 'package:shopping/screens/cart_screen.dart';
+import '../providers/products.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/badge.dart';
 import '../widgets/products_grid_view.dart';
@@ -19,6 +20,26 @@ class ProductsOverviewScreen extends StatefulWidget {
 }
 
 class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
+  var _showOnlyFavorites = false;
+  var _isInit = true;
+  var _isLoading = false;
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isLoading = true;
+      });
+      Provider.of<Products>(context).fetchAndSetProducts().then((_) {
+        setState(() {
+          _isLoading = false;
+        });
+      });
+    }
+    _isInit = false;
+    super.didChangeDependencies();
+  }
+
   PopupMenuItem buildMenuItem(
       String title, MenuItemsValues value, Function onTap) {
     return PopupMenuItem(
@@ -27,8 +48,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       child: Text(title),
     );
   }
-
-  var _showOnlyFavorites = false;
 
   @override
   Widget build(BuildContext context) {

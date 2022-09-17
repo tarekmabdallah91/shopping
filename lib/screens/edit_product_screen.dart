@@ -20,6 +20,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   var _editedProductId;
   var editedProduct;
   var _isInit = true;
+  var _isLoading = false;
 
   @override
   void didChangeDependencies() {
@@ -50,20 +51,42 @@ class _EditProductScreenState extends State<EditProductScreen> {
     super.initState();
   }
 
-  void _saveForm() {
+  Future<void> _saveForm() async {
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
     }
     _form.currentState!.save();
-    if (_editedProductId == null || _editedProductId == '') {
-      Provider.of<Products>(context, listen: false).addProduct(editedProduct);
+    if (_editedProductId != '') {
+      await Provider.of<Products>(context, listen: false)
+          .updateProduct(editedProduct.id, editedProduct);
     } else {
-      Provider.of<Products>(context, listen: false)
-          .updateProduct(_editedProductId, editedProduct);
+      try {
+        await Provider.of<Products>(context, listen: false)
+            .addProduct(editedProduct);
+      } catch (error) {
+        await showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text('An error occurred!'),
+            content: Text('Something went wrong.'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Okay'),
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+              )
+            ],
+          ),
+        );
+      }
     }
-
+    setState(() {
+      _isLoading = false;
+    });
     Navigator.of(context).pop();
+    // Navigator.of(context).pop();
   }
 
   @override

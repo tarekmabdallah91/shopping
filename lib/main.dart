@@ -11,7 +11,14 @@ import 'package:shopping/screens/products_overview_screen.dart';
 import 'providers/orders.dart';
 import 'screens/user_products_screen.dart';
 
-void main() {
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
+
+void main() async {
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
   runApp(const MyApp());
 }
 
@@ -38,6 +45,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: appTitle,
         theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch(
@@ -46,14 +54,14 @@ class MyApp extends StatelessWidget {
               secondary: Colors.deepPurpleAccent,
             ),
             fontFamily: 'Lato'),
-        initialRoute: '/',
+        initialRoute: ProductsOverviewScreen.route,
         routes: {
-          '/': (context) => ProductsOverviewScreen(),
+          ProductsOverviewScreen.route: (context) => ProductsOverviewScreen(),
           ProductDetailsScreen.route: (context) => const ProductDetailsScreen(),
           CartScreen.route: (context) => const CartScreen(),
           OrdersScreen.routeName: (context) => OrdersScreen(),
           UserProductsScreen.routeName: (context) => UserProductsScreen(),
-          EditProductScreen.route:(context) => EditProductScreen(),
+          EditProductScreen.route: (context) => EditProductScreen(),
         },
       ),
     );

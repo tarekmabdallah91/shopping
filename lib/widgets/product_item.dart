@@ -34,13 +34,13 @@ class ProductItem extends StatelessWidget {
               // 13th step: the 3rd args 'child' can be used to keep a data which not needed to be updated like labels, for now we replaced it with '_' because it's not used
               builder: (context, value, _) => IconButton(
                 icon: Icon(
-                  product.isFavouraite ? Icons.favorite : Icons.favorite_border,
+                  product.isFavorite ? Icons.favorite : Icons.favorite_border,
                 ),
                 color: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
                   product.toggleIsFavouraiteStatus();
                   productsData.removeProductFromFavouraites(
-                      product); // TODO to make grid listen to this action
+                      product); // dart(todo) to make grid listen to this action
                 },
               ),
             ),
@@ -50,21 +50,19 @@ class ProductItem extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
                   cart.addItem(product);
-                  Scaffold.of(context).hideCurrentSnackBar();
-              Scaffold.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Added item to cart!',
-                  ),
-                  duration: Duration(seconds: 2),
-                  action: SnackBarAction(
-                    label: 'UNDO',
-                    onPressed: () {
-                      cart.removeSingleItem(product.id);
-                    },
-                  ),
-                ),
-              );
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text('Added item to cart!'),
+                      duration: const Duration(seconds: 2),
+                      action: SnackBarAction(
+                        label: 'UNDO',
+                        onPressed: () {
+                          cart.removeSingleItem(product.id);
+                        },
+                      ),
+                    ),
+                  );
                 },
               ),
             ),
