@@ -7,14 +7,17 @@ part of 'product.dart';
 // **************************************************************************
 
 Product _$ProductFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['title', 'description', 'imageUrl']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['title', 'description', 'imageUrl'],
+  );
   return Product(
-    id: json['id'] as String,
+    id: json['id'] ?? '',
     title: json['title'] as String,
     description: json['description'] as String,
-    price: (json['price'] as num)?.toDouble() ?? 0,
+    price: (json['price'] as num?)?.toDouble() ?? 0,
     imageUrl: json['imageUrl'] as String,
-    isFavorite: json['isFavorite'] as bool ?? false,
+    isFavorite: json['isFavorite'] as bool? ?? false,
   );
 }
 

@@ -57,23 +57,22 @@ class Products with ChangeNotifier {
 
   Future<void> fetchAndSetProducts() async {
     final url = Uri.https('alarmscontroller.firebaseio.com', '/products.json');
-    try {
-      final response = await http.get(url);
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      if (extractedData == null) {
-        return;
-      }
-      final List<Product> loadedProducts = [];
-      extractedData.forEach((prodId, prodData) {
-        Map<String, dynamic> productMap = jsonDecode(prodData);
-        var product = Product.fromJson(productMap);
-        loadedProducts.add(product);
-      });
-      _items = loadedProducts;
-      notifyListeners();
-    } catch (error) {
-      throw (error);
-    }
+    // try {
+    final response = await http.get(url);
+    final extractedData = jsonDecode(response.body) as Map<String, dynamic>;
+
+    final List<Product> loadedProducts = [];
+    extractedData.forEach((prodId, prodData) {
+      var product = Product.fromJson(prodData);
+      product.id = prodId;
+      loadedProducts.add(product);
+      print('product ${product.title} : id = ${product.id}');
+    });
+    _items = loadedProducts;
+    notifyListeners();
+    // } catch (error) {
+    //   throw (error);
+    // }
   }
 
   Product getProductById(String id) {
@@ -89,12 +88,15 @@ class Products with ChangeNotifier {
   Future<void> addProduct(Product product) async {
     final url = Uri.https('alarmscontroller.firebaseio.com', '/products.json');
     try {
-      String productJson = jsonEncode(product);
+      String productJson = jsonEncode(product.toJson());
+      print(productJson);
       final response = await http.post(
         url,
-        body: json.encode(productJson),
+        body: productJson,
       );
+      print(response.body);
       product.id = json.decode(response.body)['name'];
+      print('new id : ${product.id}');
       _items.add(product);
       // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_serializable/json_serializable.dart';
+
 part 'product.g.dart';
 
 // for Nested classes use annotation @JsonSerializable(explicitToJson: true)
@@ -19,7 +19,7 @@ class Product with ChangeNotifier {
   final double price;
   @JsonKey(required: true)
   final String imageUrl;
-  @JsonKey(defaultValue: false)
+  // @JsonKey(defaultValue: false) defined int he constructor
   bool isFavorite;
 
   Product({
@@ -32,7 +32,7 @@ class Product with ChangeNotifier {
   });
 
   /// A necessary factory constructor for creating a new User instance
-  /// The constructor is named after the source class, in this flutter pub run build_runner build --delete-conflicting-outputscase
+  /// The constructor is named after the source class, in this flutter pub run build_runner build --delete-conflicting-outputscase watch
   factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
 
